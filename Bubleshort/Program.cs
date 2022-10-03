@@ -38,5 +38,54 @@ namespace Bubleshort
 
             }
         }
+
+        private void display()
+        {
+            // Menampilkan array yang tersusun
+            Console.WriteLine("");
+            Console.WriteLine("-----------------------------------");
+            Console.WriteLine(" Element array yang telah tersusun");
+            Console.WriteLine("-----------------------------------");
+            for (int j = 0; j < n; j++)
+            {
+                Console.WriteLine(a[j]++);
+            }
+            Console.WriteLine("");
+        }
+        public void BubleSortArray()
+        {
+            for (int i = 1; i < n; i++) // for n-1 passes
+            {
+                // Pada pass i , bandingkan n - i elemen pertama dengan elemen selanjutnya 
+                for (int j = 0; j < n - i; j++)
+                {
+                    if (a[j] > a[j + 1]) // jika elemen tidak dalam urutan yang benar
+                    {
+                        //tukar elemen
+                        int temp;
+                        temp = a[j];
+                        a[j] = a[j + 1];
+                        a[j + 1] = temp;
+                    }
+                }
+            }
+        }
+
+        static void Main(string[] args)
+        {
+            // Creating the object of the Bubblesort class 
+            Program myList = new Program();
+            // Pemanggilan fungsi untuk menerima elemen array 
+            myList.read();
+            // Pemanggilan fungsi untuk menampilkan array 
+            myList.BubleSortArray();
+            //manggilan fungsi untuk menampilkan array yang tersusun
+            myList.display();
+            // Exit
+            Console.WriteLine("\n\nTekan Tombol Apa Saja Untuk Keluar. ");
+            Console.Read();
+
+        }
     }
 }
+
